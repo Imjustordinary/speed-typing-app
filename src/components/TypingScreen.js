@@ -88,7 +88,7 @@ function TypingScreen() {
   }, [seconds]);
 
   const onKeyDownHandler = ({ keyCode, key }) => {
-    if (keyCode === 32) {
+    if (keyCode === 32 || keyCode === 229) {
       if (paragraph[currentIndex] === inputText.current.value.trim()) {
         setCorrectWords((prev) => prev + 1);
       }
@@ -98,7 +98,7 @@ function TypingScreen() {
       setCharIndex(-1);
       setCurrentChar("");
       setTotalWords((prev) => prev + 1);
-    } else if (keyCode === 8 || keyCode === 229) {
+    } else if (keyCode === 8) {
       if (charIndex === 0) {
         setCurrentChar("");
       } else if (charIndex < 0) {
