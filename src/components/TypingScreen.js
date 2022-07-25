@@ -101,6 +101,10 @@ function TypingScreen() {
     } else if (keyCode === 8) {
       if (charIndex === 0) {
         setCurrentChar("");
+      } else if (charIndex < 0) {
+        setCurrentChar("");
+        setCharIndex(-1);
+        return;
       } else {
         setCurrentChar(currentWord.split("")[charIndex - 1]);
       }
