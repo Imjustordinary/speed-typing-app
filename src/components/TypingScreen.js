@@ -98,7 +98,7 @@ function TypingScreen() {
       setCharIndex(-1);
       setCurrentChar("");
       setTotalWords((prev) => prev + 1);
-    } else if (keyCode === 8) {
+    } else if (keyCode === 8 || keyCode === 229) {
       if (charIndex === 0) {
         setCurrentChar("");
       } else if (charIndex < 0) {
@@ -128,7 +128,6 @@ function TypingScreen() {
           }
         }
       }
-      // setCharIndex(prev=>prev +1)
     },
     [charIndex, currentChar]
   );
@@ -142,6 +141,7 @@ function TypingScreen() {
           onCloseResultHandler={onCloseResultHandler}
         />
       )}
+
       <Row className="col-lg-9 mx-auto">
         <Col>
           <div className="my-3">
@@ -155,7 +155,6 @@ function TypingScreen() {
           <div>
             <Form>
               <Form.Group className="mb-3" controlId="formTypeInput">
-                {/* <Form.Label>Email address</Form.Label> */}
                 <Form.Control
                   ref={inputText}
                   onKeyDown={onKeyDownHandler}
